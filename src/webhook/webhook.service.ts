@@ -3,10 +3,10 @@ import * as shell from 'shelljs';
 
 function doBlogRefresh() {
   shell.cd('/home/ruios/projects/blog');
-  shell.echo(`now in ${shell.pwd()}`);
+  console.log(`now in ${shell.pwd()}`);
   shell.exec('git pull', {async: true});
   shell.exec('npm run build',{async: true});
-  shell.echo('blog refreshed');
+  console.log('blog refreshed');
 }
 
 @Injectable()
