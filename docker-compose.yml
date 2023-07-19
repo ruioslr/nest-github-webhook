@@ -1,0 +1,26 @@
+version: '2'
+services:
+  # 服务名称
+  nginx:
+    # 镜像:版本
+    image: nginx:latest
+    container_name: main
+    restart: always
+    # network_mode: 'host'
+    # 映射容器80端口到本地80端口
+    ports:
+      - '80:80'
+      - '443:443'
+      # 数据卷 映射本地文件到容器
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./log:/var/log/nginx
+      - ./www.ruios.cn_nginx:/etc/nginx/ssl/main
+      - ./blog.ruios.cn_nginx:/etc/nginx/ssl/blog
+      - ../projects/blog/dist:/usr/share/nginx/html
+    command: /bin/bash -c "nginx -g 'daemon off;'"
+#     networks:
+#       - data_application
+# networks:
+#   data_application:
+#     external: true

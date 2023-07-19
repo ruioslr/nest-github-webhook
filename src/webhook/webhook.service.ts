@@ -6,6 +6,7 @@ export class WebhookService {
     return 'hello';
   }
   postGitHook(b: any):string {
+    console.log(b)
     return 'postGitHook'
   }
 }
