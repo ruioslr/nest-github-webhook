@@ -23,6 +23,7 @@ export class WebhookService {
         return 'not ok';
       }
     } catch (e) {
+      console.log(e)
       return 'error';
     }
   }
