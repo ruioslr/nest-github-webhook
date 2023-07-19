@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import shell from 'shelljs'
+import * as shell from 'shelljs';
 
 function doBlogRefresh() {
   shell.cd('/home/ruios/projects/blog');
-  console.log(`now in ${shell.pwd()}`);
+  shell.echo(`now in ${shell.pwd()}`);
   shell.exec('git pull');
   shell.exec('npm run build');
-  console.log('blog refreshed');
+  shell.echo('blog refreshed');
 }
 
 @Injectable()
